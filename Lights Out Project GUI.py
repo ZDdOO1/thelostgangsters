@@ -1,5 +1,6 @@
 from tkinter import *
 from random import randint
+#from twilio.rest import Client
 
 
 class GUI(Frame):
@@ -26,6 +27,31 @@ class GUI(Frame):
         pass
         # Insert code for phone setup and test
 
+class TextMessage():
+    #Default sid and auth token from twilio
+    account_sid = ""
+    auth_token = ""
+    def __init__(self,phoneNumber):
+        this.phoneNumber = phoneNumber
+
+    @property
+    def phoneNumber(self):
+        return self._phoneNumber
+
+    @phoneNumber.setter
+    def phoneNumber(self, value):
+        self._phoneNumber = value
+
+    def sendText(self, phoneNumber):
+        client = Client(account_sid, auth_token)
+        message = client.api.account.messages.create(
+            to=phoneNumber,
+            from_="+1850762013",
+            body="sussy baka")
+        
+    
+    
+        
 
 window = Tk()
 text = Label(window, text="Lamppost Service Setup")
