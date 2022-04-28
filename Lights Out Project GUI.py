@@ -2,18 +2,17 @@ from tkinter import *
 from random import randint
 #from twilio.rest import Client
 
-
 class GUI(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
-        self.button1 = Button(master, text= "Test sensitivity", fg="purple", command=self.test)
-        self.button1.pack(side=TOP)
-        self.button2 = Button(master, text="Tune sensitivity", fg="pink", command=self.tune)
-        self.button2.pack(side=TOP)
-        self.button3 = Button(master, text="Setup phone number", fg="green", command=self.setup)
-        self.button3.pack(side=TOP)
-        self.button4 = Button(master, text="Quit", fg="red", command=self.quit)
-        self.button4.pack(side=TOP)
+        self.button1 = Button(master, text= "Test sensitivity", bg="purple", command=self.test)
+        self.button1.pack(side=TOP, fill=X)
+        self.button2 = Button(master, text="Tune sensitivity", bg="pink", command=self.tune)
+        self.button2.pack(side=TOP, fill=X)
+        self.button3 = Button(master, text="Setup phone number", bg="green", command=self.setup)
+        self.button3.pack(side=TOP, fill=X)
+        self.button4 = Button(master, text="Quit", bg="red", command=self.quit)
+        self.button4.pack(side=TOP, fill=X)
 
     def test(self):
         print(randint(0, 1))
@@ -24,13 +23,19 @@ class GUI(Frame):
         # Use this to tune sensitivity
 
     def setup(self):
-        pass
-        # Insert code for phone setup and test
+        num = Label(window, text="Phone Number", bg="green")
+        num.pack(side=TOP, fill=X)
+
+        value = Entry(window, bg="green")
+        value.pack(side=TOP, fill=X)
+
+
 
 class TextMessage():
     #Default sid and auth token from twilio
     account_sid = ""
     auth_token = ""
+
     def __init__(self,phoneNumber):
         this.phoneNumber = phoneNumber
 
@@ -48,10 +53,7 @@ class TextMessage():
             to=phoneNumber,
             from_="+1850762013",
             body="sussy baka")
-        
-    
-    
-        
+
 
 window = Tk()
 text = Label(window, text="Lamppost Service Setup")
