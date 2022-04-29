@@ -1,6 +1,6 @@
 from tkinter import *
 from random import randint
-#from twilio.rest import Client
+from twilio.rest import Client
 
 TEST = True
 
@@ -47,13 +47,14 @@ class TextMessage():
         self._phoneNumber = value
 
     def sendText(self, phoneNumber):
-        account_sid = "AC3011ed2449a037259ba00c392b44cc82"
-        auth_token = "0e5fd4797548a6a2a54ef2d347d05a5e"
+        #Never leave sid and token in code when pushing to github
+        account_sid = ""
+        auth_token = ""
         client = Client(account_sid, auth_token)
         message = client.api.account.messages.create(
             to=phoneNumber,
-            from_="+1850762013", #Twilio default number
-            body="sussy baka")
+            from_="+18507862013", #Twilio default number
+            body="The lights are out!")
         
     '''
     def setUpNumber(self,pNum):
@@ -64,11 +65,11 @@ class TextMessage():
                                 phone_number=pNum)
         print(validation_request.friendly_name)
         '''
-'''
+
 if(TEST):
     t1 = TextMessage("+3185138033")
     t1.sendText("+13185138033")
-'''
+
 
 window = Tk()
 text = Label(window, text="Lamppost Service Setup")
