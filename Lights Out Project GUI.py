@@ -20,10 +20,6 @@ class GUI(Frame):
         print(randint(0, 1))
         # Use this to print current values
 
-    def tune(self):
-        pass
-        # Use this to tune sensitivity
-
     def setup(self):
         num = Label(window, text="Phone Number", bg="green")
         num.pack(side=TOP, fill=X)
